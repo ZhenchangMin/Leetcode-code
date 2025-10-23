@@ -12,21 +12,21 @@
 class Solution
 {
 public:
-    int maxDepth(TreeNode *root)
+    int minDepth(TreeNode *root)
     {
-        int left = 0, right = 0;
+        int left = INT_MAX, right = INT_MAX;
         if (!root)
             return 0;
         if (root->left == nullptr && root->right == nullptr)
-            return 1;// base case: leaf node, depth is 1
+            return 1; // base case: leaf node, depth is 1
         if (root->left != nullptr)
         {
-            left = maxDepth(root->left);
+            left = minDepth(root->left);
         }
         if (root->right != nullptr)
         {
-            right = maxDepth(root->right);
+            right = minDepth(root->right);
         }
-        return max(left, right) + 1;
+        return min(left, right) + 1;
     }
 };
