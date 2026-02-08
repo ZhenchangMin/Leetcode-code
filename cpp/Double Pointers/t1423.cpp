@@ -11,15 +11,15 @@ public:
             longer[i+cardPoints.size()] = cardPoints[i];
         }
         int cur_sum = 0;
-        int mymax = 0;
+        int cur_max = 0;
         for (int i = cardPoints.size() - k; i < cardPoints.size(); i++){
             cur_sum += longer[i];
         }
-        mymax = cur_sum;
+        cur_max = cur_sum;
         for (int i = 0; i < k; i++){
             cur_sum += longer[i+cardPoints.size()] - longer[i+cardPoints.size()-k];
-            mymax = max(mymax, cur_sum);
+            cur_max = max(cur_max, cur_sum);
         }
-        return mymax;
+        return cur_max;
     }
 };
